@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "Calendar No-Show Tracker",
+  "version": "1.0",
+  "description": "Add a 'No Show' button next to attendees in Google Calendar events",
+  "permissions": ["storage", "activeTab", "cookies"],
+  "host_permissions": ["https://calendar.google.com/*", "https://*.cal.com/*"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/icon16.png",
+      "48": "images/icon48.png",
+      "128": "images/icon128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://calendar.google.com/*"],
+      "js": ["content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_end"
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "16": "images/icon16.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  }
+}
